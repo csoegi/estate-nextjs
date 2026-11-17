@@ -62,7 +62,7 @@ export function Specifications() {
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-5">
               {current.map((item) => <div key={item.label}>
                 <p className="text-[10px] tracking-[.08em] text-[#827b72]">{item.label}</p>
-                <p className="mt-3 text-2xl font-semibold tracking-[-.05em] text-[#171715] md:text-[clamp(1.5rem,2.5vw,2.5rem]">{item.value}</p>
+                <p className="mt-3 text-2xl font-semibold tracking-[-.05em] text-[#171715] md:text-[clamp(1.5rem,2.5vw,2.5rem)]">{item.value}</p>
               </div>)}
             </div>
             <div className="mt-12 flex flex-wrap items-end justify-between gap-6">
