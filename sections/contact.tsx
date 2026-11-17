@@ -53,7 +53,7 @@ export function Contact() {
         <div>
           <p className="section-kicker">Start a conversation</p>
           <motion.h2 initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="editorial-title mt-7 max-w-xl text-5xl md:text-7xl">Let’s talk about your next chapter.</motion.h2>
-          <p className="mt-6 max-w-md text-sm leading-7 text-[#827b72]">Leave us a message and our team will be in touch to share more about Citraland Raffles Surabaya.</p>
+          <p className="mt-6 max-w-md text-sm leading-7 text-[#827b72]">Leave us a message and our team will be in touch to share more about RE House at Citraland Raffles Surabaya.</p>
           <form className="mt-10 flex flex-col gap-5" onSubmit={handleSubmit}>
             <div className="grid gap-5 sm:grid-cols-2">
               <label className="text-[9px] uppercase tracking-[.15em] text-[#827b72]">Your name<input name="name" type="text" required maxLength={100} placeholder="Full name" className="mt-3 block w-full border-b border-[#292722]/25 bg-transparent px-0 py-3 text-sm normal-case tracking-normal text-[#292722] outline-none placeholder:text-[#a59d93] focus:border-[#292722]" /></label>
@@ -76,11 +76,25 @@ export function Contact() {
                 {feedback.message}
               </p>
             )}
-            {!whatsappNumber && <p className="text-[10px] text-[#827b72]">Set NEXT_PUBLIC_WHATSAPP_NUMBER to enable the WhatsApp contact link.</p>}
+            {/* {!whatsappNumber && <p className="text-[10px] text-[#827b72]">Set NEXT_PUBLIC_WHATSAPP_NUMBER to enable the WhatsApp contact link.</p>} */}
           </form>
         </div>
         <div className="flex flex-col justify-between border-t border-[#292722]/20 pt-8 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-0">
-          <div><p className="text-[9px] uppercase tracking-[.2em] text-[#827b72]">Visit the residence</p><p className="editorial-title mt-5 text-3xl md:text-4xl">Citraland Raffles<br/>Surabaya</p></div>
+          <div><p className="text-[9px] uppercase tracking-[.2em] text-[#827b72]">Visit the residence</p><p className="editorial-title mt-5 text-3xl md:text-4xl">Citraland Raffles<br/>Surabaya</p>
+            <div className="mt-8 overflow-hidden rounded-sm border border-[#292722]/15">
+              <iframe
+                title="Citraland Raffles Surabaya map"
+                src="https://www.google.com/maps?q=Citraland+Raffles+Surabaya&output=embed"
+                width="100%"
+                height="500"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+                className="block w-full grayscale"
+              />
+            </div>
+            <a href="https://maps.app.goo.gl/bZTZGttDPtxemjxKA" target="_blank" rel="noreferrer" className="mt-3 inline-flex text-[9px] uppercase tracking-[.15em] text-[#827b72] transition-colors hover:text-[#292722]">Open in Google Maps ↗</a>
+          </div>
           <div className="mt-12 space-y-5 text-xs text-[#827b72]">
             <p>For appointments, availability, and further information, please get in touch with our team.</p>
             <a href="#home" className="inline-flex items-center gap-4 border-b border-[#292722]/30 pb-2 uppercase tracking-[.15em] text-[#292722]">Back to top <span>↑</span></a>

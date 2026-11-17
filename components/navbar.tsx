@@ -25,8 +25,8 @@ export function Navbar() {
     <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${scrolled ? "bg-[#eee8e1]/95 text-[#292722] shadow-sm backdrop-blur-md" : "bg-transparent text-white"}`}>
       <nav className="section-shell flex h-[78px] items-center justify-between">
         <a href="#home" aria-label="Citraland Raffles home" className="flex flex-col leading-none">
-          <span className="text-[17px] tracking-[.22em]">CITRALAND</span>
-          <span className="mt-1 text-[8px] tracking-[.38em] opacity-75">RAFFLES SURABAYA</span>
+          <span className="text-[17px] tracking-[.22em]">RE HOUSE </span>
+          {/* <span className="mt-1 text-[8px] tracking-[.38em] opacity-75">RAFFLES SURABAYA</span> */}
         </a>
         <div className="hidden items-center gap-9 md:flex">
           {links.map(([label, href]) => (

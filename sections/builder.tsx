@@ -8,20 +8,22 @@ export function Builder() {
         <div className="grid gap-4 md:grid-cols-2">
           <article className="grid min-h-[340px] grid-cols-[40%_60%] bg-[#e5dfd7]">
             <div className="relative min-h-full overflow-hidden bg-[#c8c0b5]">
-              <Image src="/assets/galleryImage1.png" alt="Architectural design detail" fill sizes="40vw" className="object-cover" />
+              <Image src="/assets/ivan-priatman.jpg" alt="Ivan Priatman, Architect" fill sizes="40vw" className="object-cover" />
             </div>
             <div className="flex flex-col justify-end p-6 md:p-9">
               <p className="text-[9px] uppercase tracking-[.2em] text-[#827b72]">Architecture & design</p>
-              <h3 className="editorial-title mt-4 text-3xl md:text-4xl">The Architect</h3>
-              <p className="mt-4 text-xs leading-6 text-[#827b72]">The creative team behind the residence. Architect profile and project credentials can be added here.</p>
+              <h3 className="editorial-title mt-4 text-3xl md:text-4xl">Ivan Priatman</h3>
+              <p className="mt-4 text-xs leading-6 text-[#827b72]">The principal architect behind the exceptional RE House residence design. </p>
             </div>
           </article>
           <article className="flex min-h-[340px] flex-col justify-between bg-[#292a27] p-7 text-[#eee8e1] md:p-10">
-            <div className="flex size-20 items-center justify-center border border-white/35 text-center text-xs tracking-[.18em]">CR<br/>LOGO</div>
+            <div className="relative flex size-20 items-center justify-center border border-white/35 text-center text-xs tracking-[.18em]">
+            <Image src="/assets/hexacons-logo.jpg" alt="Hexacons Construction" fill sizes="40vw" className="object-cover" />
+            </div>
             <div>
               <p className="text-[9px] uppercase tracking-[.2em] text-white/55">Development & construction</p>
-              <h3 className="editorial-title mt-4 text-3xl md:text-4xl">The Builder</h3>
-              <p className="mt-4 max-w-md text-xs leading-6 text-white/65">The developer and construction partner bringing the project to life. Builder name, logo, and company profile can be added here.</p>
+              <h3 className="editorial-title mt-4 text-3xl md:text-4xl">Hexacons Construction</h3>
+              <p className="mt-4 max-w-md text-xs leading-6 text-white/65">A renowned property development and construction partner for the RE House residence.</p>
             </div>
           </article>
         </div>

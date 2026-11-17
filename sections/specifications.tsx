@@ -95,7 +95,7 @@ export function Specifications() {
             </div>
           </div>
         </div>
-        <p className="mt-4 text-[10px] leading-5 text-[#827b72]">Floor plan artwork is currently a reusable placeholder for each level and can be replaced with the final drawings. Additional room and facility dimensions are available from the sales team.</p>
+        {/* <p className="mt-4 text-[10px] leading-5 text-[#827b72]">Floor plan artwork is currently a reusable placeholder for each level and can be replaced with the final drawings. Additional room and facility dimensions are available from the sales team.</p> */}
       </div>
     </section>
   );
