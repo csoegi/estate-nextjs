@@ -86,7 +86,7 @@ export function Contact() {
                 title="Citraland Raffles Surabaya map"
                 src="https://www.google.com/maps?q=Citraland+Raffles+Surabaya&output=embed"
                 width="100%"
-                height="280"
+                height="500"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 allowFullScreen
