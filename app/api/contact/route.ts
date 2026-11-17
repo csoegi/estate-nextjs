@@ -14,7 +14,15 @@ export async function POST(request: Request) {
 
   let payload: Record<string, unknown>;
   try {
-    payload = await request.json();
+    const rawBody = await request.text();
+    if (new TextEncoder().encode(rawBody).length > MAX_BODY_BYTES) {
+      return NextResponse.json({ error: "Your message is too large. Please shorten it and try again." }, { status: 413 });
+    }
+    const parsed: unknown = JSON.parse(rawBody);
+    if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
+      return NextResponse.json({ error: "Invalid request. Please check the form and try again." }, { status: 400 });
+    }
+    payload = parsed as Record<string, unknown>;
   } catch {
     return NextResponse.json({ error: "Invalid request. Please check the form and try again." }, { status: 400 });
   }
