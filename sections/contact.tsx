@@ -53,7 +53,7 @@ export function Contact() {
         <div>
           <p className="section-kicker">Start a conversation</p>
           <motion.h2 initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="editorial-title mt-7 max-w-xl text-5xl md:text-7xl">Let’s talk about your next chapter.</motion.h2>
-          <p className="mt-6 max-w-md text-sm leading-7 text-[#827b72]">Leave us a message and our team will be in touch to share more about Citraland Raffles Surabaya.</p>
+          <p className="mt-6 max-w-md text-sm leading-7 text-[#827b72]">Leave us a message and our team will be in touch to share more about RE House at Citraland Raffles Surabaya.</p>
           <form className="mt-10 flex flex-col gap-5" onSubmit={handleSubmit}>
             <div className="grid gap-5 sm:grid-cols-2">
               <label className="text-[9px] uppercase tracking-[.15em] text-[#827b72]">Your name<input name="name" type="text" required maxLength={100} placeholder="Full name" className="mt-3 block w-full border-b border-[#292722]/25 bg-transparent px-0 py-3 text-sm normal-case tracking-normal text-[#292722] outline-none placeholder:text-[#a59d93] focus:border-[#292722]" /></label>
@@ -76,7 +76,7 @@ export function Contact() {
                 {feedback.message}
               </p>
             )}
-            {!whatsappNumber && <p className="text-[10px] text-[#827b72]">Set NEXT_PUBLIC_WHATSAPP_NUMBER to enable the WhatsApp contact link.</p>}
+            {/* {!whatsappNumber && <p className="text-[10px] text-[#827b72]">Set NEXT_PUBLIC_WHATSAPP_NUMBER to enable the WhatsApp contact link.</p>} */}
           </form>
         </div>
         <div className="flex flex-col justify-between border-t border-[#292722]/20 pt-8 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-0">
