@@ -12,7 +12,7 @@ export function Gallery() {
   return (
     <section id="gallery" className="scroll-mt-20 bg-[#eee8e1] py-20 md:py-28">
       <div className="section-shell">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[30%_70%] lg:gap-8">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-[minmax(0,3fr)_minmax(0,7fr)] lg:gap-8">
           <div className="flex flex-col items-start pr-4">
             <p className="section-kicker">The residence</p>
             <h2 className="editorial-title mt-8 max-w-sm text-5xl md:text-6xl">Spaces with purpose.</h2>
