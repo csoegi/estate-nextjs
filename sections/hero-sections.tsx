@@ -1,61 +1,25 @@
 "use client";
 
-import { HomeIcon } from "lucide-react";
 import { motion } from "framer-motion";
 
 export function HeroSection() {
-    return (
-        <motion.section className="flex flex-col items-center min-h-screen justify-center bg-black bg-[url('/hero-image.png')] bg-cover bg-center bg-no-repeat px-4 w-full"
-            initial={{ opacity: 0.4 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-        >
-            <motion.div className="bg-white/20 backdrop-blur text-sm text-white pl-2 pr-4 py-1 rounded-full flex items-center gap-2 border border-white/20"
-                initial={{ y: -20, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2, type: "spring", stiffness: 320, damping: 70, mass: 1 }}
-            >
-                <HomeIcon size={16} />
-                <p>Helping Families Find Their Dream Homes</p>
-            </motion.div>
-            <motion.h1 className="text-5xl md:text-[64px] text-zinc-50 font-medium max-w-3xl text-center mt-5 leading-tight"
-                initial={{ y: 50, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ type: "spring", stiffness: 240, damping: 70, mass: 1 }}
-            >
-                Helping You Find the Perfect Place to Call Home
-            </motion.h1>
-            <motion.p className="text-white max-w-120 text-center mt-3"
-                initial={{ y: 50, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2, type: "spring", stiffness: 320, damping: 70, mass: 1 }}
-            >
-                Discover exceptional properties, expert advice and a seamless buying or selling experience tailored to your goals.
-            </motion.p>
-            <motion.div className="flex items-center gap-4 mt-8"
-                initial={{ y: 50, opacity: 0 }}
-                whileInView={{ y: 0, opacity: 1 }}
-                viewport={{ once: true }}
-                transition={{ type: "spring", stiffness: 320, damping: 70, mass: 1 }}
-            >
-                <button className="bg-zinc-50 hover:bg-zinc-200 px-6 py-2.5 rounded-md text-zinc-800 text-sm font-medium cursor-pointer transition">
-                    View Listings
-                </button>
-                <button className="border border-slate-200 text-zinc-50 px-5 py-2.5 rounded-md text-sm font-medium cursor-pointer transition group">
-                    <div className="relative overflow-hidden">
-                        <span className="block transition-transform duration-200 group-hover:-translate-y-full">
-                            Book a Call
-                        </span>
-                        <span className="absolute top-0 left-0 block transition-transform duration-200 group-hover:translate-y-0 translate-y-full">
-                            Book a Call
-                        </span>
-                    </div>
-                </button>
-            </motion.div>
-        </motion.section>
-    )
+  return (
+    <section id="home" className="relative flex min-h-[720px] h-[92svh] max-h-[1000px] items-end overflow-hidden bg-[#272725] text-white">
+      <div className="absolute inset-0 bg-[url('/hero-image.png')] bg-cover bg-[center_54%]" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/25 to-black/10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/20" />
+      <div className="section-shell relative z-10 pb-24 pt-36 md:pb-32">
+        <motion.p initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .7 }} className="mb-7 text-[10px] uppercase tracking-[.28em] text-white/75">A residence beyond the ordinary</motion.p>
+        <motion.h1 initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .9, delay: .08 }} className="editorial-title max-w-[850px] text-[clamp(4rem,10vw,9.5rem)]">
+          A place to<br /><span className="italic">belong.</span>
+        </motion.h1>
+        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: .8, delay: .35 }} className="mt-8 flex items-center gap-5">
+          <span className="h-px w-12 bg-white/70" />
+          <p className="max-w-md text-[11px] uppercase tracking-[.19em] text-white/85 md:text-xs">Discover a considered way of living at Citraland Raffles Surabaya</p>
+        </motion.div>
+        <a href="#gallery" className="mt-12 inline-flex items-center gap-4 border-b border-white/60 pb-2 text-[10px] uppercase tracking-[.18em] transition-opacity hover:opacity-65">Explore the residence <span aria-hidden>↘</span></a>
+      </div>
+      <div className="absolute bottom-8 right-8 hidden text-[9px] tracking-[.2em] text-white/70 md:block">SURABAYA · INDONESIA</div>
+    </section>
+  );
 }

@@ -1,178 +1,43 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 
-const houseImage = "/assets/house.png";
+const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER?.replace(/\D/g, "");
 
 export function Contact() {
-    return (
-        <section className="py-20 w-full flex items-center justify-center">
-            <div className="max-w-5xl w-full mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-
-                {/* Left Column: Contact Form */}
-                <div className="flex flex-col">
-
-                    <motion.div className="flex items-center gap-1.5"
-                        initial={{ y: -20, opacity: 0 }}
-                        whileInView={{ y: 0, opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2, type: "spring", stiffness: 320, damping: 70, mass: 1 }}
-                    >
-                        <span className="size-1.5 bg-zinc-900"></span>
-                        <span className="text-sm text-zinc-900">
-                            CONTACT
-                        </span>
-                    </motion.div>
-
-                    <motion.h2 className="text-3xl md:text-[40px]/11 text-zinc-900 mt-5 leading-tight font-medium max-w-[400px]"
-                        initial={{ y: 50, opacity: 0 }}
-                        whileInView={{ y: 0, opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ type: "spring", stiffness: 240, damping: 70, mass: 1 }}
-                    >
-                        Connect with us <br />to get the best deal
-                    </motion.h2>
-
-                    {/* Form */}
-                    <form className="mt-15 flex flex-col gap-6" onSubmit={(e) => e.preventDefault()}>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            {/* Name */}
-                            <div className="flex flex-col">
-                                <motion.label className="text-sm text-zinc-600 mb-2"
-                                    initial={{ y: 50, opacity: 0 }}
-                                    whileInView={{ y: 0, opacity: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ type: "spring", stiffness: 320, damping: 70, mass: 1 }}
-                                >
-                                    YOUR NAME
-                                </motion.label>
-                                <motion.input type="text" placeholder="Michael Anderson" className="w-full border border-zinc-200 rounded-sm px-4 py-2.5 text-xs text-zinc-800 placeholder-zinc-400 focus:outline-none focus:border-zinc-300 transition-colors" 
-                                    initial={{ y: 50, opacity: 0 }}
-                                    whileInView={{ y: 0, opacity: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ type: "spring", stiffness: 320, damping: 70, mass: 1 }}
-                                />
-                            </div>
-
-                            {/* Email */}
-                            <div className="flex flex-col">
-                                <motion.label className="text-sm text-zinc-600 mb-2"
-                                    initial={{ y: 50, opacity: 0 }}
-                                    whileInView={{ y: 0, opacity: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ type: "spring", stiffness: 320, damping: 70, mass: 1 }}
-                                >
-                                    EMAIL ADDRESS
-                                </motion.label>
-                                <motion.input type="email" placeholder="michael@prebuiltUI.com" className="w-full border border-zinc-200 rounded-sm px-4 py-2.5 text-xs text-zinc-800 placeholder-zinc-400 focus:outline-none focus:border-zinc-300 transition-colors" 
-                                    initial={{ y: 50, opacity: 0 }}
-                                    whileInView={{ y: 0, opacity: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ type: "spring", stiffness: 320, damping: 70, mass: 1 }}
-                                />
-                            </div>
-                        </div>
-
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            {/* Phone */}
-                            <div className="flex flex-col">
-                                <motion.label className="text-sm text-zinc-600 mb-2"
-                                    initial={{ y: 50, opacity: 0 }}
-                                    whileInView={{ y: 0, opacity: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ type: "spring", stiffness: 320, damping: 70, mass: 1 }}
-                                >
-                                    PHONE NUMBER
-                                </motion.label>
-                                <motion.input type="tel" placeholder="E.g. +123 456 789 00" className="w-full border border-zinc-200 rounded-sm px-4 py-2.5 text-xs text-zinc-800 placeholder-zinc-400 focus:outline-none focus:border-zinc-300 transition-colors" 
-                                    initial={{ y: 50, opacity: 0 }}
-                                    whileInView={{ y: 0, opacity: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ type: "spring", stiffness: 320, damping: 70, mass: 1 }}
-                                />
-                            </div>
-
-                            {/* Subject */}
-                            <div className="flex flex-col">
-                                <motion.label className="text-sm text-zinc-600 mb-2"
-                                    initial={{ y: 50, opacity: 0 }}
-                                    whileInView={{ y: 0, opacity: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ type: "spring", stiffness: 320, damping: 70, mass: 1 }}
-                                >
-                                    SUBJECT
-                                </motion.label>
-                                <motion.input type="text" placeholder="E.g. Buying Property" className="w-full border border-zinc-200 rounded-sm px-4 py-2.5 text-xs text-zinc-800 placeholder-zinc-400 focus:outline-none focus:border-zinc-300 transition-colors" 
-                                    initial={{ y: 50, opacity: 0 }}
-                                    whileInView={{ y: 0, opacity: 1 }}
-                                    viewport={{ once: true }}
-                                    transition={{ type: "spring", stiffness: 320, damping: 70, mass: 1 }}
-                                />
-                            </div>
-                        </div>
-
-                        {/* Message */}
-                        <div className="flex flex-col">
-                            <motion.label className="text-sm text-zinc-600 mb-2"
-                                initial={{ y: 50, opacity: 0 }}
-                                whileInView={{ y: 0, opacity: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ type: "spring", stiffness: 320, damping: 70, mass: 1 }}
-                            >
-                                MESSAGE
-                            </motion.label>
-                            <motion.textarea rows={4} placeholder="E.g. I want to buy a property" className="w-full border border-zinc-200 rounded-sm px-4 py-2.5 text-xs text-zinc-800 placeholder-zinc-400 focus:outline-none focus:border-zinc-300 transition-colors resize-none" 
-                                initial={{ y: 50, opacity: 0 }}
-                                whileInView={{ y: 0, opacity: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ type: "spring", stiffness: 320, damping: 70, mass: 1 }}
-                            />
-                        </div>
-
-                        {/* Submit Button */}
-                        <motion.div className="mt-2"
-                            initial={{ y: 50, opacity: 0 }}
-                            whileInView={{ y: 0, opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ type: "spring", stiffness: 320, damping: 70, mass: 1 }}
-                        >
-                            <button type="submit" className="bg-black hover:bg-zinc-900 text-white text-xs px-6 py-3.5 rounded-full transition-colors duration-200 cursor-pointer">
-                                GET STARTED
-                            </button>
-                        </motion.div>
-                    </form>
-                </div>
-
-                {/* Right Column: Key Details Image Card */}
-                <motion.div className="relative overflow-hidden group flex justify-center"
-                    initial={{ y: 50, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ type: "spring", stiffness: 320, damping: 70, mass: 1 }}
-                >
-                    <div className="relative w-[382px] h-[455px] overflow-hidden rounded-xl">
-                        <Image src={houseImage} alt="Contact House" width={382} height={455} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 select-none brightness-80" />
-
-                        {/* Details Content Overlay */}
-                        <div className="absolute bottom-10 left-10 flex flex-col gap-2.5 z-10">
-                            <span className="text-base text-white">
-                                KEY DETAILS
-                            </span>
-                            <motion.div className="flex flex-col gap-1 text-sm text-white"
-                                initial={{ y: 20, opacity: 0 }}
-                                whileInView={{ y: 0, opacity: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: 0.2, type: "spring", stiffness: 320, damping: 70, mass: 1 }}
-                            >
-                                <p>Monday-Friday: 10 AM - 6 PM</p>
-                                <p>Saturday: 10 AM - 4 PM</p>
-                            </motion.div>
-                        </div>
-                    </div>
-                </motion.div>
-
+  return (
+    <section id="contact" className="scroll-mt-20 bg-[#e5dfd7] py-20 md:py-28">
+      <div className="section-shell grid gap-12 lg:grid-cols-[1fr_.8fr] lg:gap-24">
+        <div>
+          <p className="section-kicker">Start a conversation</p>
+          <motion.h2 initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="editorial-title mt-7 max-w-xl text-5xl md:text-7xl">Let’s talk about your next chapter.</motion.h2>
+          <p className="mt-6 max-w-md text-sm leading-7 text-[#827b72]">Leave us a message and our team will be in touch to share more about Citraland Raffles Surabaya.</p>
+          <form className="mt-10 flex flex-col gap-5" onSubmit={(event) => event.preventDefault()}>
+            <div className="grid gap-5 sm:grid-cols-2">
+              <label className="text-[9px] uppercase tracking-[.15em] text-[#827b72]">Your name<input name="name" type="text" required placeholder="Full name" className="mt-3 block w-full border-b border-[#292722]/25 bg-transparent px-0 py-3 text-sm normal-case tracking-normal text-[#292722] outline-none placeholder:text-[#a59d93] focus:border-[#292722]" /></label>
+              <label className="text-[9px] uppercase tracking-[.15em] text-[#827b72]">Email address<input name="email" type="email" required placeholder="you@example.com" className="mt-3 block w-full border-b border-[#292722]/25 bg-transparent px-0 py-3 text-sm normal-case tracking-normal text-[#292722] outline-none placeholder:text-[#a59d93] focus:border-[#292722]" /></label>
             </div>
-        </section>
-    );
+            <div className="grid gap-5 sm:grid-cols-2">
+              <label className="text-[9px] uppercase tracking-[.15em] text-[#827b72]">Phone number<input name="phone" type="tel" placeholder="+62" className="mt-3 block w-full border-b border-[#292722]/25 bg-transparent px-0 py-3 text-sm normal-case tracking-normal text-[#292722] outline-none placeholder:text-[#a59d93] focus:border-[#292722]" /></label>
+              <label className="text-[9px] uppercase tracking-[.15em] text-[#827b72]">Subject<input name="subject" type="text" placeholder="Property enquiry" className="mt-3 block w-full border-b border-[#292722]/25 bg-transparent px-0 py-3 text-sm normal-case tracking-normal text-[#292722] outline-none placeholder:text-[#a59d93] focus:border-[#292722]" /></label>
+            </div>
+            <label className="text-[9px] uppercase tracking-[.15em] text-[#827b72]">Message<textarea name="message" rows={4} required placeholder="How can we help?" className="mt-3 block w-full resize-none border-b border-[#292722]/25 bg-transparent px-0 py-3 text-sm normal-case tracking-normal text-[#292722] outline-none placeholder:text-[#a59d93] focus:border-[#292722]" /></label>
+            <div className="mt-3 flex flex-wrap items-center gap-4">
+              <button type="submit" className="bg-[#292722] px-7 py-4 text-[10px] uppercase tracking-[.16em] text-white transition-colors hover:bg-[#49463f]">Send message <span className="ml-5">→</span></button>
+              <a href={whatsappNumber ? `https://wa.me/${whatsappNumber}` : "#contact"} target={whatsappNumber ? "_blank" : undefined} rel={whatsappNumber ? "noreferrer" : undefined} aria-label="Contact us via WhatsApp" className="border border-[#292722]/35 px-7 py-4 text-[10px] uppercase tracking-[.16em] transition-colors hover:bg-[#292722] hover:text-white">WhatsApp <span className="ml-5">↗</span></a>
+            </div>
+            {!whatsappNumber && <p className="text-[10px] text-[#827b72]">Set NEXT_PUBLIC_WHATSAPP_NUMBER to enable the WhatsApp contact link.</p>}
+          </form>
+        </div>
+        <div className="flex flex-col justify-between border-t border-[#292722]/20 pt-8 lg:border-l lg:border-t-0 lg:pl-12 lg:pt-0">
+          <div><p className="text-[9px] uppercase tracking-[.2em] text-[#827b72]">Visit the residence</p><p className="editorial-title mt-5 text-3xl md:text-4xl">Citraland Raffles<br/>Surabaya</p></div>
+          <div className="mt-12 space-y-5 text-xs text-[#827b72]">
+            <p>For appointments, availability, and further information, please get in touch with our team.</p>
+            <a href="#home" className="inline-flex items-center gap-4 border-b border-[#292722]/30 pb-2 uppercase tracking-[.15em] text-[#292722]">Back to top <span>↑</span></a>
+          </div>
+        </div>
+      </div>
+      <div className="section-shell mt-20 flex flex-col justify-between gap-3 border-t border-[#292722]/20 pt-6 text-[9px] uppercase tracking-[.15em] text-[#827b72] sm:flex-row"><span>© {new Date().getFullYear()} Citraland Raffles Surabaya</span><span>Architecture · Living · Lifestyle</span></div>
+    </section>
+  );
 }
