@@ -5,8 +5,8 @@ import { useState } from "react";
 const slides = [
   [
     { label: "Completion", value: "Q4 2026" },
-    { label: "Plot size", value: "0.12 HA" },
-    { label: "House area", value: "450 M²" },
+    { label: "Total area", value: "0.12 HA" },
+    { label: "Build size", value: "450 M²" },
   ],
   [
     { label: "Carport", value: "Details on request" },
@@ -14,14 +14,14 @@ const slides = [
     { label: "Bathrooms", value: "Details on request" },
   ],
   [
-    { label: "Pool & meeting room", value: "Details on request" },
-    { label: "Kitchen & maid room", value: "Details on request" },
-    { label: "Storage & rooftop", value: "Details on request" },
+    { label: "Swimming pool", value: "Details on request" },
+    { label: "Meeting room", value: "Details on request" },
+    { label: "Kitchen", value: "Details on request" },
   ],
   [
-    { label: "Rooftop function room", value: "Details on request" },
-    { label: "Outdoor patio", value: "Details on request" },
-    { label: "House type", value: "Type C · Comfort Line" },
+    { label: "Maid room & bathroom", value: "Details on request" },
+    { label: "Storage room", value: "Details on request" },
+    { label: "Rooftop & outdoor patio", value: "Details on request" },
   ],
 ];
 
