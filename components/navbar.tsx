@@ -1,59 +1,46 @@
 "use client";
 
 import Image from "next/image";
-import React, { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+
+const links = [
+  ["Home", "#home"],
+  ["Gallery", "#gallery"],
+  ["Specifications", "#specifications"],
+  ["Builder", "#builder"],
+  ["Contact", "#contact"],
+];
 
 export function Navbar() {
-    const [mobileOpen, setMobileOpen] = React.useState(false);
-    const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
-        };
-        window.addEventListener("scroll", handleScroll, { passive: true });
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 36);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
-    return (
-        <>
-            <nav className={`fixed z-50 flex items-center justify-between left-1/2 -translate-x-1/2 transition-all duration-500 p-4 ${scrolled ? "lg:w-5xl w-[calc(100vw-14px)] bg-white/60 backdrop-blur-2xl rounded-full mt-4 pl-6 shadow" : "md:px-16 lg:px-24 xl:px-32 w-full"}`}>
-                <a href="https://prebuiltui.com">
-                    <Image width={100} height={100} src="/logo.svg" alt="Logo" className={`transition-all duration-500 h-9 w-auto ${scrolled ? "invert opacity-80" : ""}`} />
-                </a>
-
-                {/* Desktop links */}
-                <div className="hidden md:flex items-center gap-6 md:gap-10 text-sm">
-                    <a href="#" className={`transition-colors duration-500 ${scrolled ? "text-zinc-800 hover:text-zinc-600" : "text-white hover:text-white/90"}`}>Home</a>
-                    <a href="#" className={`transition-colors duration-500 ${scrolled ? "text-zinc-800 hover:text-zinc-600" : "text-white hover:text-white/90"}`}>Portfolio</a>
-                    <a href="#" className={`transition-colors duration-500 ${scrolled ? "text-zinc-800 hover:text-zinc-600" : "text-white hover:text-white/90"}`}>Services</a>
-                    <a href="#" className={`transition-colors duration-500 ${scrolled ? "text-zinc-800 hover:text-zinc-600" : "text-white hover:text-white/90"}`}>Contact</a>
-                </div>
-
-                <button className={`hidden md:block px-6 py-2.5 rounded-[6px] text-sm font-medium cursor-pointer transition-all duration-500 ${scrolled ? "bg-zinc-900 text-white hover:bg-zinc-800 rounded-full" : "bg-zinc-50 text-zinc-800 hover:bg-zinc-200"}`}>
-                    Get Started
-                </button>
-
-                <button onClick={() => setMobileOpen(true)} className={`md:hidden p-2 rounded-md aspect-square font-medium transition cursor-pointer ${scrolled ? "text-zinc-800" : "text-white"}`}>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M4 12h16" /><path d="M4 18h16" /><path d="M4 6h16" />
-                    </svg>
-                </button>
-            </nav>
-
-            {/* Mobile Menu Overlay */}
-            <div className={`${mobileOpen ? 'max-md:w-full' : 'max-md:w-0'} md:hidden max-md:fixed max-md:top-0 max-md:z-50 max-md:left-0 max-md:transition-all max-md:duration-300 max-md:overflow-hidden max-md:h-full max-md:bg-white/5 max-md:backdrop-blur max-md:flex-col max-md:justify-center flex items-center gap-6 md:gap-10 text-sm`}>
-                <a href="#" onClick={() => { setMobileOpen(false) }} className={`transition-colors duration-500 ${scrolled ? "text-zinc-800 hover:text-zinc-600" : "text-white hover:text-white/90"}`}>Home</a>
-                <a href="#" onClick={() => { setMobileOpen(false) }} className={`transition-colors duration-500 ${scrolled ? "text-zinc-800 hover:text-zinc-600" : "text-white hover:text-white/90"}`}>Portfolio</a>
-                <a href="#" onClick={() => { setMobileOpen(false) }} className={`transition-colors duration-500 ${scrolled ? "text-zinc-800 hover:text-zinc-600" : "text-white hover:text-white/90"}`}>Services</a>
-                <a href="#" onClick={() => { setMobileOpen(false) }} className={`transition-colors duration-500 ${scrolled ? "text-zinc-800 hover:text-zinc-600" : "text-white hover:text-white/90"}`}>Contact</a>
-
-                <button onClick={() => setMobileOpen(false)} className="md:hidden bg-white text-zinc-800 p-2 rounded-md aspect-square font-medium transition cursor-pointer">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <path d="M18 6 6 18" /><path d="m6 6 12 12" />
-                    </svg>
-                </button>
-            </div>
-        </>
-    );
+  return (
+    <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${scrolled ? "bg-[#eee8e1]/95 text-[#292722] shadow-sm backdrop-blur-md" : "bg-transparent text-white"}`}>
+      <nav className="section-shell flex h-[78px] items-center justify-between">
+        <a href="#home" aria-label="Citraland Raffles home" className="flex flex-col leading-none">
+          <span className="text-[17px] tracking-[.22em]">CITRALAND</span>
+          <span className="mt-1 text-[8px] tracking-[.38em] opacity-75">RAFFLES SURABAYA</span>
+        </a>
+        <div className="hidden items-center gap-9 md:flex">
+          {links.map(([label, href]) => (
+            <a key={href} href={href} className="text-[10px] uppercase tracking-[.13em] opacity-90 transition-opacity hover:opacity-60">{label}</a>
+          ))}
+        </div>
+        <button type="button" aria-label="Toggle navigation" aria-expanded={mobileOpen} onClick={() => setMobileOpen(!mobileOpen)} className="grid size-10 place-items-center md:hidden">
+          <span className="text-2xl leading-none">{mobileOpen ? "×" : "☰"}</span>
+        </button>
+      </nav>
+      {mobileOpen && <div className="border-t border-black/10 bg-[#eee8e1] px-6 py-5 text-[#292722] md:hidden">
+        <div className="flex flex-col gap-5">{links.map(([label, href]) => <a key={href} href={href} onClick={() => setMobileOpen(false)} className="text-xs uppercase tracking-[.16em]">{label}</a>)}</div>
+      </div>}
+    </header>
+  );
 }

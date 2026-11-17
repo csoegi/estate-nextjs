@@ -1,8 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #eee8e1;
+  --foreground: #292722;
+  --paper: #eee8e1;
+  --ink: #292722;
+  --muted: #827b72;
+  --line: rgba(41, 39, 34, .18);
 }
 
 @theme inline {
@@ -12,53 +16,22 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #ffffff;
-    --foreground: #171717;
-  }
-}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+body { background: var(--paper); color: var(--ink); }
+body, button, input, textarea { font-family: var(--font-geist-sans), sans-serif; }
+h1, h2, h3, h4 { font-family: var(--font-urbanist), sans-serif; font-weight: 400; }
+::selection { background: #b7a995; color: #1f1d19; }
 
-* {
-  font-family: var(--font-geist-sans), sans-serif;
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-urbanist), sans-serif;
-}
-
-body {
-  background: var(--background);
-  color: var(--foreground);
-}
-
-@keyframes marquee-up {
-  0% {
-    transform: translateY(0);
-  }
-  100% {
-    transform: translateY(-50%);
-  }
-}
-
-@keyframes marquee-down {
-  0% {
-    transform: translateY(-50%);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-
-.animate-marquee-up {
-  animation: marquee-up 30s linear infinite;
-}
-
-.animate-marquee-down {
-  animation: marquee-down 30s linear infinite;
-}
-
-.animate-marquee-up:hover,
-.animate-marquee-down:hover {
-  animation-play-state: paused;
+.section-shell { width: min(100% - 48px, 1440px); margin-inline: auto; }
+.section-kicker { display: flex; align-items: center; gap: 14px; color: #777066; font-size: 10px; letter-spacing: .2em; text-transform: uppercase; }
+.section-kicker::after { content: ""; width: 34px; height: 1px; background: currentColor; }
+.editorial-title { font-family: var(--font-urbanist), serif; font-weight: 300; letter-spacing: -.055em; line-height: .98; }
+.image-card { position: relative; overflow: hidden; background: #d4cec5; }
+.image-card img { transition: transform .8s cubic-bezier(.2,.7,.2,1); }
+.image-card:hover img { transform: scale(1.045); }
+.spec-arrow { display: grid; place-items: center; width: 42px; height: 42px; border: 1px solid var(--line); border-radius: 999px; transition: background .2s, color .2s; }
+.spec-arrow:hover { background: var(--ink); color: var(--paper); }
+@media (max-width: 640px) {
+  .section-shell { width: min(100% - 32px, 1440px); }
 }
