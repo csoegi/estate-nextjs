@@ -1,11 +1,13 @@
 import Image from "next/image";
 
 const images = [
-  { src: "/assets/galleryImage1.png", alt: "Residence exterior and landscape" },
-  { src: "/assets/galleryImage2.png", alt: "Contemporary living space" },
-  { src: "/assets/galleryImage3.png", alt: "Architectural details" },
-  { src: "/assets/galleryImage4.png", alt: "Residential architecture" },
-  { src: "/assets/house.png", alt: "The residence" },
+  { src: "/assets/galleryImage1.png", alt: "Residence exterior and landscape", orientation: "vertical" },
+  { src: "/assets/galleryImage2.png", alt: "Contemporary living space", orientation: "horizontal" },
+  { src: "/assets/galleryImage3.png", alt: "Architectural details", orientation: "horizontal" },
+  { src: "/assets/galleryImage4.png", alt: "Residential architecture", orientation: "vertical" },
+  { src: "/assets/house.png", alt: "The residence", orientation: "horizontal" },
+  // Reuse an existing project image as a temporary sixth gallery placeholder.
+  { src: "/assets/house.png", alt: "Additional residence view", orientation: "horizontal" },
 ];
 
 export function Gallery() {
@@ -21,7 +23,7 @@ export function Gallery() {
           </div>
           <div className="grid grid-cols-2 gap-3 md:gap-4">
             {images.map((item, index) => (
-              <div key={item.src} className={`image-card ${index === 0 || index === 3 ? "row-span-2 min-h-[420px] md:min-h-[520px]" : "min-h-[200px] md:min-h-[245px]"}`}>
+              <div key={`${item.src}-${index}`} className={`image-card ${item.orientation === "vertical" ? "row-span-2 min-h-[420px] md:min-h-[520px]" : "min-h-[200px] md:min-h-[245px]"}`}>
                 <Image src={item.src} alt={item.alt} fill sizes="(min-width: 1024px) 30vw, 50vw" className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
                 <span className="absolute bottom-4 left-4 text-[10px] uppercase tracking-[.13em] text-white/95">0{index + 1} / Residence</span>
