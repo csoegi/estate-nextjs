@@ -8,7 +8,7 @@ export function Builder() {
         <div className="grid gap-4 md:grid-cols-2">
           <article className="grid min-h-[340px] grid-cols-1 bg-[#e5dfd7] md:grid-cols-[40%_60%]">
             <div className="relative min-h-[360px] overflow-hidden bg-[#c8c0b5] md:min-h-full">
-              <Image src="/assets/ivan-priatman.jpg" alt="Ivan Priatman, Architect" fill sizes="40vw" className="object-cover" />
+              <Image src="/assets/ivan-priatman.jpg" alt="Ivan Priatman, Architect" fill sizes="40vw" className="object-contain md:object-cover" />
             </div>
             <div className="flex flex-col justify-end p-6 md:p-9">
               <p className="text-[9px] uppercase tracking-[.2em] text-[#827b72]">Architecture & design</p>
