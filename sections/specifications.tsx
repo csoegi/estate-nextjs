@@ -50,8 +50,9 @@ const floorFeatures: { floor: string; icon: string; features: FloorFeature[] }[]
     floor: "2nd Floor",
     icon: "▤",
     features: [
-      ["Staircase", ArrowUpDown], ["Outdoor Deck", Sun], ["2 Kids Bedrooms with ensuite bathrooms (pool view)", BedDouble],
-      ["1 Master Bedroom with ensuite bathroom and walking wardrobe (pool view)", BedDouble], ["Storage Room", Archive],
+      ["Staircase", ArrowUpDown], ["Outdoor Deck", Sun], ["Lift Area", ArrowUpDown], ["Storage Room", Archive], 
+      ["2 Kids Bedrooms with ensuite bathrooms (pool view)", BedDouble],
+      ["1 Master Bedroom with ensuite bathroom and wardrobe (pool view)", BedDouble],
     ],
   },
   {
