@@ -114,7 +114,14 @@ export function Specifications() {
                 <span className="text-[11px] leading-5 text-[#33312d] md:text-xs">{feature}</span>
               </div>)}
             </div>
-            <div className="mt-auto pt-4 text-[9px] uppercase tracking-[.14em] text-[#827b72]">RE House Residence</div>
+            <div className="mt-auto flex items-center justify-between pt-4">
+              <span className="text-[9px] uppercase tracking-[.14em] text-[#827b72]">RE House Residence</span>
+              <div className="flex shrink-0 items-center gap-1.5">
+                <button type="button" aria-label="Previous floor features" onClick={() => setActiveFloorPage((p) => (p + floorFeatures.length - 1) % floorFeatures.length)} className="spec-arrow">←</button>
+                <span className="px-1 text-[10px] tabular-nums text-[#827b72]">{activeFloorPage + 1} / {floorFeatures.length}</span>
+                <button type="button" aria-label="Next floor features" onClick={() => setActiveFloorPage((p) => (p + 1) % floorFeatures.length)} className="spec-arrow">→</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
