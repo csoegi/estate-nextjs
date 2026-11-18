@@ -7,17 +7,17 @@ const floorFeatures = [
     floor: "Ground Floor",
     icon: "⌂",
     features: [
-      ["Carport", "🚗"], ["Entrance", "↗"], ["Foyer", "⌂"], ["Staircase", "▥"],
-      ["Front Garden", "🌿"], ["Meeting Room", "◫"], ["Storage Room", "▤"], ["Utility Room", "⚙"],
+      ["Carport", "◦"], ["Entrance", "↗"], ["Foyer", "⌂"], ["Staircase", "▥"],
+      ["Front Garden", "◦"], ["Meeting Room", "◫"], ["Storage Room", "▤"], ["Utility Room", "⚙"],
       ["Powder Room", "◌"], ["Maid Bedroom", "▣"], ["Maid Bathroom", "♨"], ["Maid Quarter", "⌂"],
-      ["Laundry Area", "♧"], ["Back Garden", "🌳"], ["Lift Area", "↕"],
+      ["Laundry Area", "♧"], ["Back Garden", "◦"], ["Lift Area", "↕"],
     ],
   },
   {
     floor: "1st Floor",
     icon: "▤",
     features: [
-      ["Staircase", "▥"], ["Courtyard", "🌿"], ["Pantry", "▤"], ["Dining Area", "♧"],
+      ["Staircase", "▥"], ["Courtyard", "◦"], ["Pantry", "▤"], ["Dining Area", "♧"],
       ["Living Room", "⌂"], ["Swimming Pool", "≈"], ["Guest Bedroom with ensuite bathroom (pool view)", "▣"],
       ["Common Bathroom", "♨"], ["Lift Area", "↕"],
     ],
@@ -26,7 +26,7 @@ const floorFeatures = [
     floor: "2nd Floor",
     icon: "▤",
     features: [
-      ["Staircase", "▥"], ["Outdoor Deck", "☀"], ["2 Kids Bedrooms with ensuite bathrooms (pool view)", "▣"],
+      ["Staircase", "▥"], ["Outdoor Deck", "◦"], ["2 Kids Bedrooms with ensuite bathrooms (pool view)", "▣"],
       ["1 Master Bedroom with ensuite bathroom and walking wardrobe (pool view)", "▣"], ["Storage Room", "▤"],
     ],
   },
@@ -34,8 +34,8 @@ const floorFeatures = [
     floor: "3rd Floor",
     icon: "▤",
     features: [
-      ["Function Room", "◫"], ["Powder Room", "◌"], ["Outdoor Deck", "☀"], ["BBQ Area", "♨"],
-      ["Roof Garden", "🌿"], ["Lift Area", "↕"],
+      ["Function Room", "◫"], ["Powder Room", "◌"], ["Outdoor Deck", "◦"], ["BBQ Area", "♨"],
+      ["Roof Garden", "◦"], ["Lift Area", "↕"],
     ],
   },
 ];
