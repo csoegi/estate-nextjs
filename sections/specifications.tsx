@@ -2,27 +2,42 @@
 
 import { useState } from "react";
 
-const slides = [
-  [
-    { label: "Completion", value: "Q2 2027" },
-    { label: "Total area", value: "300 M²" },
-    { label: "Build size", value: "800 M²" },
-  ],
-  [
-    { label: "Carport", value: "24 M²" },
-    { label: "Bedrooms", value: "5" },
-    { label: "Bathrooms", value: "6" },
-  ],
-  [
-    { label: "Swimming pool", value: "32 M²" },
-    { label: "Meeting room", value: "20 M²" },
-    { label: "Kitchen", value: "20 M²" },
-  ],
-  [
-    { label: "Maid room & bathroom", value: "Yes" },
-    { label: "Storage room", value: "20 M²" },
-    { label: "Rooftop & outdoor patio", value: "120 M²" },
-  ],
+const floorFeatures = [
+  {
+    floor: "Ground Floor",
+    icon: "⌂",
+    features: [
+      ["Carport", "🚗"], ["Entrance", "↗"], ["Foyer", "⌂"], ["Staircase", "▥"],
+      ["Front Garden", "🌿"], ["Meeting Room", "◫"], ["Storage Room", "▤"], ["Utility Room", "⚙"],
+      ["Powder Room", "◌"], ["Maid Bedroom", "▣"], ["Maid Bathroom", "♨"], ["Maid Quarter", "⌂"],
+      ["Laundry Area", "♧"], ["Back Garden", "🌳"], ["Lift Area", "↕"],
+    ],
+  },
+  {
+    floor: "1st Floor",
+    icon: "▤",
+    features: [
+      ["Staircase", "▥"], ["Courtyard", "🌿"], ["Pantry", "▤"], ["Dining Area", "♧"],
+      ["Living Room", "⌂"], ["Swimming Pool", "≈"], ["Guest Bedroom with ensuite bathroom (pool view)", "▣"],
+      ["Common Bathroom", "♨"], ["Lift Area", "↕"],
+    ],
+  },
+  {
+    floor: "2nd Floor",
+    icon: "▤",
+    features: [
+      ["Staircase", "▥"], ["Outdoor Deck", "☀"], ["2 Kids Bedrooms with ensuite bathrooms (pool view)", "▣"],
+      ["1 Master Bedroom with ensuite bathroom and walking wardrobe (pool view)", "▣"], ["Storage Room", "▤"],
+    ],
+  },
+  {
+    floor: "3rd Floor",
+    icon: "▤",
+    features: [
+      ["Function Room", "◫"], ["Powder Room", "◌"], ["Outdoor Deck", "☀"], ["BBQ Area", "♨"],
+      ["Roof Garden", "🌿"], ["Lift Area", "↕"],
+    ],
+  },
 ];
 
 const floorPlans = [
@@ -41,14 +56,14 @@ const floorPlans = [
 ];
 
 export function Specifications() {
-  const [active, setActive] = useState(0);
-  const [activeFloor, setActiveFloor] = useState(0);
+  const [activeFloorPage, setActiveFloorPage] = useState(0);
+  const [activeFloorPlan, setActiveFloorPlan] = useState(0);
   const [zoomed, setZoomed] = useState(false);
-  const currentSlide = slides[active];
-  const floor = floorPlans[activeFloor];
+  const floorPage = floorFeatures[activeFloorPage];
+  const plan = floorPlans[activeFloorPlan];
 
-  const changeFloor = (direction: number) => {
-    setActiveFloor((index) => (index + direction + floorPlans.length) % floorPlans.length);
+  const changePlan = (direction: number) => {
+    setActiveFloorPlan((index) => (index + direction + floorPlans.length) % floorPlans.length);
   };
 
   return (
@@ -62,40 +77,57 @@ export function Specifications() {
           <div className="relative flex min-h-[390px] flex-col justify-between bg-[#111311] p-5 md:min-h-[480px] md:p-8">
             <div className="min-h-0 flex-1">
               <div className="relative flex h-full min-h-[280px] items-center justify-center bg-[#111311]">
-                <img src={floor.src} alt={`${floor.label} floor plan`} className="max-h-full w-full object-contain" />
+                <img src={plan.src} alt={plan.label + " floor plan"} className="max-h-full w-full object-contain" />
                 <button type="button" onClick={() => setZoomed(true)} aria-label="Zoom floor plan" className="absolute right-3 top-3 inline-flex items-center gap-2 border border-white/30 bg-black/50 px-3 py-2 text-[9px] uppercase tracking-[.15em] text-white backdrop-blur-sm hover:bg-black/70">Zoom ↗</button>
               </div>
             </div>
             <div className="mt-5 flex flex-wrap items-end justify-between gap-4">
-              <div><p className="text-[9px] uppercase tracking-[.2em] text-white/55">Floor plan</p><p className="mt-2 text-sm text-white/90">{floor.label}</p></div>
+              <div><p className="text-[9px] uppercase tracking-[.2em] text-white/55">Floor plan</p><p className="mt-2 text-sm text-white/90">{plan.label}</p></div>
               <div className="flex items-center gap-2">
-                <button type="button" aria-label="Previous floor plan" onClick={() => changeFloor(-1)} className="spec-arrow border-white/20 text-white hover:bg-white/10">←</button>
-                <span className="px-1 text-[10px] tabular-nums text-white/65">{activeFloor + 1} / {floorPlans.length}</span>
-                <button type="button" aria-label="Next floor plan" onClick={() => changeFloor(1)} className="spec-arrow border-white/20 text-white hover:bg-white/10">→</button>
+                <button type="button" aria-label="Previous floor plan" onClick={() => changePlan(-1)} className="spec-arrow border-white/20 text-white hover:bg-white/10">←</button>
+                <span className="px-1 text-[10px] tabular-nums text-white/65">{activeFloorPlan + 1} / {floorPlans.length}</span>
+                <button type="button" aria-label="Next floor plan" onClick={() => changePlan(1)} className="spec-arrow border-white/20 text-white hover:bg-white/10">→</button>
               </div>
             </div>
           </div>
-          <div className="flex min-h-[330px] flex-col justify-between bg-[#f1ede8] p-7 md:min-h-[480px] md:p-10 lg:p-12">
-            <div className="grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-5">
-              {currentSlide.map((item) => <div key={item.label}>
-                <p className="text-[10px] tracking-[.08em] text-[#827b72]">{item.label}</p>
-                <p className="mt-3 text-2xl font-semibold tracking-[-.05em] text-[#171715] md:text-[clamp(1.5rem,2.5vw,2.5rem)]">{item.value}</p>
+
+          <div className="flex min-h-[390px] flex-col bg-[#f1ede8] p-6 md:min-h-[480px] md:p-8 lg:p-9">
+            <div className="grid grid-cols-3 gap-3 border-b border-[#d8d0c7] pb-5">
+              {[
+                { label: "Completion", value: "Q2 2027" },
+                { label: "Total area", value: "300 M²" },
+                { label: "Build size", value: "800 M²" },
+              ].map((item) => <div key={item.label} className="min-w-0">
+                <p className="text-[9px] uppercase tracking-[.08em] text-[#827b72]">{item.label}</p>
+                <p className="mt-2 text-lg font-semibold tracking-[-.04em] text-[#171715] md:text-xl">{item.value}</p>
               </div>)}
             </div>
-            <div className="mt-12 flex flex-wrap items-end justify-between gap-6">
-              <div><p className="text-[10px] uppercase tracking-[.16em] text-[#827b72]">Area Plan</p><p className="mt-2 text-sm">RE House Residence</p></div>
-              <div className="flex items-center gap-2">
-                <button type="button" aria-label="Previous specifications" onClick={() => setActive((index) => (index + slides.length - 1) % slides.length)} className="spec-arrow">←</button>
-                <span className="px-2 text-[10px] tabular-nums text-[#827b72]">{active + 1} / {slides.length}</span>
-                <button type="button" aria-label="Next specifications" onClick={() => setActive((index) => (index + 1) % slides.length)} className="spec-arrow">→</button>
+
+            <div className="mt-5 flex items-center justify-between gap-3">
+              <div>
+                <p className="text-[9px] uppercase tracking-[.18em] text-[#827b72]">Floor features</p>
+                <h3 className="mt-1 text-xl font-semibold tracking-tight text-[#171715]">{floorPage.floor}</h3>
+              </div>
+              <div className="flex shrink-0 items-center gap-1.5">
+                <button type="button" aria-label="Previous floor features" onClick={() => setActiveFloorPage((p) => (p + floorFeatures.length - 1) % floorFeatures.length)} className="spec-arrow">←</button>
+                <span className="px-1 text-[10px] tabular-nums text-[#827b72]">{activeFloorPage + 1} / {floorFeatures.length}</span>
+                <button type="button" aria-label="Next floor features" onClick={() => setActiveFloorPage((p) => (p + 1) % floorFeatures.length)} className="spec-arrow">→</button>
               </div>
             </div>
+
+            <div className="mt-4 grid grid-cols-2 gap-x-4 gap-y-3">
+              {floorPage.features.map(([feature, icon]) => <div key={feature} className="flex items-start gap-2.5">
+                <span aria-hidden="true" className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center border border-[#c8bfb5] text-xs text-[#6e685f]">{icon}</span>
+                <span className="text-[11px] leading-5 text-[#33312d] md:text-xs">{feature}</span>
+              </div>)}
+            </div>
+            <div className="mt-auto pt-4 text-[9px] uppercase tracking-[.14em] text-[#827b72]">RE House Residence</div>
           </div>
         </div>
       </div>
-      {zoomed && <div role="dialog" aria-modal="true" aria-label={`${floor.label} floor plan enlarged`} className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4 md:p-8" onClick={() => setZoomed(false)}>
+      {zoomed && <div role="dialog" aria-modal="true" aria-label={plan.label + " floor plan enlarged"} className="fixed inset-0 z-[100] flex items-center justify-center bg-black/95 p-4 md:p-8" onClick={() => setZoomed(false)}>
         <button type="button" aria-label="Close floor plan zoom" onClick={() => setZoomed(false)} className="absolute right-5 top-5 z-10 border border-white/40 px-4 py-3 text-white hover:bg-white/10">✕</button>
-        <img src={floor.src} alt={`${floor.label} floor plan`} onClick={(event) => event.stopPropagation()} className="max-h-[90vh] max-w-[95vw] object-contain" />
+        <img src={plan.src} alt={plan.label + " floor plan"} onClick={(event) => event.stopPropagation()} className="max-h-[90vh] max-w-[95vw] object-contain" />
       </div>}
     </section>
   );
