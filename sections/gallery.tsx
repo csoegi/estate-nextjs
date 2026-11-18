@@ -4,12 +4,12 @@ import path from "node:path";
 import { GalleryModal } from "@/components/gallery-modal";
 
 const highlights = [
-  { src: "/assets/galleryImage1.png", alt: "Residence exterior and landscape", orientation: "vertical" },
-  { src: "/assets/galleryImage2.png", alt: "Contemporary living space", orientation: "horizontal" },
-  { src: "/assets/galleryImage3.png", alt: "Architectural details", orientation: "horizontal" },
-  { src: "/assets/galleryImage4.png", alt: "Residential architecture", orientation: "vertical" },
-  { src: "/assets/house.png", alt: "The residence", orientation: "horizontal" },
-  { src: "/assets/house.png", alt: "Additional residence view", orientation: "horizontal" },
+  { src: "/assets/home-front.jpg", alt: "Home front view", orientation: "vertical" },
+  { src: "/assets/home-facade.jpg", alt: "Exterior facade", orientation: "horizontal" },
+  { src: "/assets/home-pool.jpg", alt: "Pool view", orientation: "horizontal" },
+  { src: "/assets/home-top.jpg", alt: "Home top view", orientation: "vertical" },
+  { src: "/assets/home-garden.jpg", alt: "Garden view", orientation: "horizontal" },
+  { src: "/assets/home-dining.jpg", alt: "Dining area", orientation: "horizontal" },
 ];
 
 async function getGalleryImages() {
