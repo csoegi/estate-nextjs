@@ -1,41 +1,62 @@
 "use client";
 
 import { useState } from "react";
+import {
+  Archive,
+  ArrowUpDown,
+  Bath,
+  BedDouble,
+  CarFront,
+  CookingPot,
+  DoorClosed,
+  DoorOpen,
+  Flame,
+  Flower2,
+  House,
+  Sofa,
+  Sun,
+  Trees,
+  Utensils,
+  Users,
+  WashingMachine,
+  Waves,
+  Wrench,
+} from "lucide-react";
 
 const floorFeatures = [
   {
     floor: "Ground Floor",
     icon: "⌂",
     features: [
-      ["Carport", "◦"], ["Entrance", "↗"], ["Foyer", "⌂"], ["Staircase", "▥"],
-      ["Front Garden", "◦"], ["Meeting Room", "◫"], ["Storage Room", "▤"], ["Utility Room", "⚙"],
-      ["Powder Room", "◌"], ["Maid Bedroom", "▣"], ["Maid Bathroom", "♨"], ["Maid Quarter", "⌂"],
-      ["Laundry Area", "♧"], ["Back Garden", "◦"], ["Lift Area", "↕"],
+      ["Carport", CarFront], ["Entrance", DoorOpen], ["Foyer", DoorClosed], ["Staircase", ArrowUpDown],
+      ["Front Garden", Trees], ["Meeting Room", Users], ["Storage Room", Archive], ["Utility Room", Wrench],
+      ["Powder Room", Bath], ["Maid Bedroom", BedDouble], ["Maid Bathroom", Bath], ["Maid Quarter", House],
+      ["Laundry Area", WashingMachine], ["Back Garden", Trees], ["Lift Area", ArrowUpDown],
     ],
   },
   {
     floor: "1st Floor",
     icon: "▤",
     features: [
-      ["Staircase", "▥"], ["Courtyard", "◦"], ["Pantry", "▤"], ["Dining Area", "♧"],
-      ["Living Room", "⌂"], ["Swimming Pool", "≈"], ["Guest Bedroom with ensuite bathroom (pool view)", "▣"],
-      ["Common Bathroom", "♨"], ["Lift Area", "↕"],
+      ["Staircase", ArrowUpDown], ["Courtyard", Flower2], ["Pantry", CookingPot], ["Dining Area", Utensils],
+      ["Living Room", Sofa], ["Swimming Pool", Waves], ["Guest Bedroom with ensuite bathroom (pool view)", BedDouble],
+      ["Common Bathroom", Bath], ["Lift Area", ArrowUpDown],
     ],
   },
   {
     floor: "2nd Floor",
     icon: "▤",
     features: [
-      ["Staircase", "▥"], ["Outdoor Deck", "◦"], ["2 Kids Bedrooms with ensuite bathrooms (pool view)", "▣"],
-      ["1 Master Bedroom with ensuite bathroom and walking wardrobe (pool view)", "▣"], ["Storage Room", "▤"],
+      ["Staircase", ArrowUpDown], ["Outdoor Deck", Sun], ["2 Kids Bedrooms with ensuite bathrooms (pool view)", BedDouble],
+      ["1 Master Bedroom with ensuite bathroom and walking wardrobe (pool view)", BedDouble], ["Storage Room", Archive],
     ],
   },
   {
     floor: "3rd Floor",
     icon: "▤",
     features: [
-      ["Function Room", "◫"], ["Powder Room", "◌"], ["Outdoor Deck", "◦"], ["BBQ Area", "♨"],
-      ["Roof Garden", "◦"], ["Lift Area", "↕"],
+      ["Function Room", Users], ["Powder Room", Bath], ["Outdoor Deck", Sun], ["BBQ Area", Flame],
+      ["Roof Garden", Trees], ["Lift Area", ArrowUpDown],
     ],
   },
 ];
