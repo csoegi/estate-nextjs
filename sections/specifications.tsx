@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import type { LucideIcon } from "lucide-react";
 import {
   Archive,
   ArrowUpDown,
@@ -23,7 +24,9 @@ import {
   Wrench,
 } from "lucide-react";
 
-const floorFeatures = [
+type FloorFeature = [string, LucideIcon];
+
+const floorFeatures: { floor: string; icon: string; features: FloorFeature[] }[] = [
   {
     floor: "Ground Floor",
     icon: "⌂",
@@ -130,10 +133,14 @@ export function Specifications() {
 
 
             <div className="mt-4 grid grid-cols-2 gap-x-4 gap-y-3">
-              {floorPage.features.map(([feature, icon]) => <div key={feature} className="flex items-center gap-2.5">
-                <span aria-hidden="true" className="flex h-8 w-8 shrink-0 items-center justify-center text-xl text-[#8b8175]">{icon}</span>
-                <span className="text-[11px] leading-5 text-[#33312d] md:text-xs">{feature}</span>
-              </div>)}
+              {floorPage.features.map(([feature, Icon]) => (
+                <div key={feature} className="flex items-center gap-2.5">
+                  <span aria-hidden="true" className="flex h-8 w-8 shrink-0 items-center justify-center text-[#8b8175]">
+                    <Icon size={19} strokeWidth={1.6} />
+                  </span>
+                  <span className="text-[11px] leading-5 text-[#33312d] md:text-xs">{feature}</span>
+                </div>
+              ))}
             </div>
             <div className="mt-auto flex items-center justify-between pt-4">
               <span className="text-[9px] uppercase tracking-[.14em] text-[#827b72]">RE House Residence</span>
