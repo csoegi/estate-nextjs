@@ -102,22 +102,15 @@ export function Specifications() {
                 <p className="mt-2 text-lg font-semibold tracking-[-.04em] text-[#171715] md:text-xl">{item.value}</p>
               </div>)}
             </div>
-
-            <div className="mt-5 flex items-center justify-between gap-3">
-              <div>
-                <p className="text-[9px] uppercase tracking-[.18em] text-[#827b72]">Floor features</p>
-                <h3 className="mt-1 text-xl font-semibold tracking-tight text-[#171715]">{floorPage.floor}</h3>
-              </div>
-              <div className="flex shrink-0 items-center gap-1.5">
-                <button type="button" aria-label="Previous floor features" onClick={() => setActiveFloorPage((p) => (p + floorFeatures.length - 1) % floorFeatures.length)} className="spec-arrow">←</button>
-                <span className="px-1 text-[10px] tabular-nums text-[#827b72]">{activeFloorPage + 1} / {floorFeatures.length}</span>
-                <button type="button" aria-label="Next floor features" onClick={() => setActiveFloorPage((p) => (p + 1) % floorFeatures.length)} className="spec-arrow">→</button>
-              </div>
+            <div className="mt-5">
+              <p className="text-[9px] uppercase tracking-[.18em] text-[#827b72]">Floor features</p>
+              <h3 className="mt-1 text-xl font-semibold tracking-tight text-[#171715]">{floorPage.floor}</h3>
             </div>
 
+
             <div className="mt-4 grid grid-cols-2 gap-x-4 gap-y-3">
-              {floorPage.features.map(([feature, icon]) => <div key={feature} className="flex items-start gap-2.5">
-                <span aria-hidden="true" className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center border border-[#c8bfb5] text-xs text-[#6e685f]">{icon}</span>
+              {floorPage.features.map(([feature, icon]) => <div key={feature} className="flex items-center gap-2.5">
+                <span aria-hidden="true" className="flex h-8 w-8 shrink-0 items-center justify-center text-xl text-[#8b8175]">{icon}</span>
                 <span className="text-[11px] leading-5 text-[#33312d] md:text-xs">{feature}</span>
               </div>)}
             </div>
