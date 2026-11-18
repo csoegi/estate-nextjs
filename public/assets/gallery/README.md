@@ -1,1 +1,0 @@
-Add additional gallery photos here. Supported formats: JPG, JPEG, PNG, WEBP, AVIF, GIF. The View Gallery button appears automatically when at least one supported image is present.

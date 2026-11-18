@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 export function HeroSection() {
   return (
     <section id="home" className="relative flex min-h-[720px] h-[92svh] max-h-[1000px] items-end overflow-hidden bg-[#272725] text-white">
-      <div className="absolute inset-0 bg-[url('/hero-image.png')] bg-cover bg-[center_54%]" />
+      <div className="absolute inset-0 bg-[url('/assets/banner_image.jpg')] bg-cover bg-[center_68%]" />
       <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/25 to-black/10" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/20" />
       <div className="section-shell relative z-10 pb-24 pt-36 md:pb-32">

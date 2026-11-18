@@ -4,33 +4,40 @@ import { useState } from "react";
 
 const slides = [
   [
-    { label: "Completion", value: "Q4 2026" },
-    { label: "Total area", value: "0.12 HA" },
-    { label: "Build size", value: "450 M²" },
+    { label: "Completion", value: "Q2 2027" },
+    { label: "Total area", value: "300 M²" },
+    { label: "Build size", value: "800 M²" },
   ],
   [
-    { label: "Carport", value: "Details on request" },
-    { label: "Bedrooms", value: "Details on request" },
-    { label: "Bathrooms", value: "Details on request" },
+    { label: "Carport", value: "40 M²" },
+    { label: "Bedrooms", value: "4" },
+    { label: "Bathrooms", value: "5" },
   ],
   [
-    { label: "Swimming pool", value: "Details on request" },
-    { label: "Meeting room", value: "Details on request" },
-    { label: "Kitchen", value: "Details on request" },
+    { label: "Swimming pool", value: "32 M²" },
+    { label: "Meeting room", value: "20 M²" },
+    { label: "Kitchen", value: "20 M²" },
   ],
   [
-    { label: "Maid room & bathroom", value: "Details on request" },
-    { label: "Storage room", value: "Details on request" },
-    { label: "Rooftop & outdoor patio", value: "Details on request" },
+    { label: "Maid room & bathroom", value: "Yes" },
+    { label: "Storage room", value: "20 M²" },
+    { label: "Rooftop & outdoor patio", value: "120 M²" },
   ],
 ];
 
 const floorPlans = [
-  { label: "Ground floor", src: "https://pub-b88054ccbe3b4e9589a7fdae837d1072.r2.dev/floor-0.jpg" },
-  { label: "1st floor", src: "https://pub-b88054ccbe3b4e9589a7fdae837d1072.r2.dev/floor-1.jpg" },
-  { label: "2nd floor", src: "https://pub-b88054ccbe3b4e9589a7fdae837d1072.r2.dev/floor-2.jpg" },
-  { label: "3rd floor", src: "https://pub-b88054ccbe3b4e9589a7fdae837d1072.r2.dev/floor-3.jpg" },
-  { label: "Rooftop", src: "https://pub-b88054ccbe3b4e9589a7fdae837d1072.r2.dev/floor-4.jpg" },
+  { label: "Ground floor", src: "/assets/floor-0.jpg" },
+  { label: "1st floor", src: "/assets/floor-1.jpg" },
+  { label: "2nd floor", src: "/assets/floor-2.jpg" },
+  { label: "3rd floor", src: "/assets/floor-3.jpg" },
+  { label: "Rooftop", src: "/assets/floor-4.jpg" },
+  { label: "Front/Back View", src: "/assets/floor-5.jpg" },
+  { label: "Front/Back View", src: "/assets/floor-6.jpg" },
+  { label: "Side View", src: "/assets/floor-7.jpg" },
+  { label: "Side View", src: "/assets/floor-8.jpg" },
+  { label: "Side View", src: "/assets/floor-9.jpg" },
+  { label: "Side View", src: "/assets/floor-10.jpg" },
+  { label: "Side View", src: "/assets/floor-11.jpg" },
 ];
 
 export function Specifications() {
@@ -60,10 +67,10 @@ export function Specifications() {
               </div>
             </div>
             <div className="mt-5 flex flex-wrap items-end justify-between gap-4">
-              <div><p className="text-[9px] uppercase tracking-[.2em] text-white/55">Architectural concept · Type C</p><p className="mt-2 text-sm text-white/90">{floor.label}</p></div>
+              <div><p className="text-[9px] uppercase tracking-[.2em] text-white/55">Floor plan</p><p className="mt-2 text-sm text-white/90">{floor.label}</p></div>
               <div className="flex items-center gap-2">
                 <button type="button" aria-label="Previous floor plan" onClick={() => changeFloor(-1)} className="spec-arrow border-white/20 text-white hover:bg-white/10">←</button>
-                <span className="px-1 text-[10px] tabular-nums text-white/65">0{activeFloor + 1} / 0{floorPlans.length}</span>
+                <span className="px-1 text-[10px] tabular-nums text-white/65">{activeFloor + 1} / {floorPlans.length}</span>
                 <button type="button" aria-label="Next floor plan" onClick={() => changeFloor(1)} className="spec-arrow border-white/20 text-white hover:bg-white/10">→</button>
               </div>
             </div>
@@ -76,10 +83,10 @@ export function Specifications() {
               </div>)}
             </div>
             <div className="mt-12 flex flex-wrap items-end justify-between gap-6">
-              <div><p className="text-[10px] uppercase tracking-[.16em] text-[#827b72]">Residence collection</p><p className="mt-2 text-sm">House Type C – Comfort Line</p></div>
+              <div><p className="text-[10px] uppercase tracking-[.16em] text-[#827b72]">Area Plan</p><p className="mt-2 text-sm">RE House Residence</p></div>
               <div className="flex items-center gap-2">
                 <button type="button" aria-label="Previous specifications" onClick={() => setActive((index) => (index + slides.length - 1) % slides.length)} className="spec-arrow">←</button>
-                <span className="px-2 text-[10px] tabular-nums text-[#827b72]">0{active + 1} / 0{slides.length}</span>
+                <span className="px-2 text-[10px] tabular-nums text-[#827b72]">{active + 1} / {slides.length}</span>
                 <button type="button" aria-label="Next specifications" onClick={() => setActive((index) => (index + 1) % slides.length)} className="spec-arrow">→</button>
               </div>
             </div>
