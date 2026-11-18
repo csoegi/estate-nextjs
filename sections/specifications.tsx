@@ -9,9 +9,9 @@ const slides = [
     { label: "Build size", value: "800 M²" },
   ],
   [
-    { label: "Carport", value: "40 M²" },
-    { label: "Bedrooms", value: "4" },
-    { label: "Bathrooms", value: "5" },
+    { label: "Carport", value: "24 M²" },
+    { label: "Bedrooms", value: "5" },
+    { label: "Bathrooms", value: "6" },
   ],
   [
     { label: "Swimming pool", value: "32 M²" },
